@@ -1,0 +1,237 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "User App",
+    "description": "Description",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": ["http"],
+  "paths": {
+    "/": {
+      "post": {
+        "summary": "Create a new user",
+        "description": "Endpoint to register a new user.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": "true",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "minhaj"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "minhaj@1234"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "minhaj@gmail.com"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Please confirm otp send your mail"
+          },
+          "400": {
+            "description": "Please provide name, password, and email"
+          },
+          "409": {
+            "description": "User already exists. Please Login"
+          },
+          "500": {
+            "description": "Something went wrong Please Try Again"
+          }
+        }
+      }
+    },
+    "/otp": {
+      "post": {
+        "summary": "Verify OTP",
+        "description": "Endpoint to verify OTP for user registration",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "minhaj@gmail.com"
+                },
+                "otp": {
+                  "type": "string",
+                  "example": "1234"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OTP verified successfully"
+          },
+          "400": {
+            "description": "Please provide  otp and email"
+          },
+          "404": {
+            "description": "Invalid OTP or email"
+          }
+        }
+      }
+    },
+    "/resendOtp": {
+      "post": {
+        "summary": "Resend OTP",
+        "description": "Endpoint to resend OTP for user registration.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "example": "minhaj@gmail.com"
+                }
+              },
+              "required": ["id"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Please check your email for new OTP"
+          },
+          "404": {
+            "description": "User not found"
+          },
+          "500": {
+            "description": "Failed to send OTP via email"
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "summary": "User Login",
+        "description": "Endpoint for  Authenticate user and generate JWT token.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "minhaj@gmail.com"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "Minhaj@123"
+                }
+              },
+              "required": ["email", "password"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Please verify your account"
+          },
+          "400": {
+            "description": "please check your email and password"
+          },
+          "401": {
+            "description": "Incorrect password or account not verified"
+          },
+          "404": {
+            "description": "User not found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+    "/profile/{id}": {
+      "get": {
+        "summary":"User Profile",
+        "description": "Febytching user profile from database ",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description":"userId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Profile Updated"
+          },
+          "400": {
+            "description": "Updation failed"
+          }
+        }
+      }
+    },
+    "/addProfile/{id}": {
+      "put": {
+        "summary":"Add Profile",
+        "description": "Add/Edit User Profile",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+          "description":"userId",
+            "type": "string"
+          },
+          {
+            "description":"Request body containing profile data",
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name":{
+                "type": "string",   
+                "example": "Minhaj"
+                },
+                "place": {
+                  "type": "string",
+                  "example": "Kerala"
+                },
+                "date": {
+                  "type": "string",
+                  "example": "2024-03-08"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Profile Updated"
+          },
+          "400": {
+            "description": "updation failed"
+          }
+        }
+      }
+    }
+  }

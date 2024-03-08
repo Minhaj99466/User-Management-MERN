@@ -4,6 +4,7 @@ const userApi = axiosInterceptorInstance;
 
 export async function UserSignUp(signupData) {
     try {
+      console.log(signupData,"khjghjg");
       const data = await userApi.post("/signup", signupData);
       return data;
     } catch (err) {

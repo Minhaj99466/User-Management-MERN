@@ -57,7 +57,8 @@ export default function Profile() {
 
   useEffect(() => {
     setLoading(true);
-    const modifiedImageUrl = userInfo.image.replace('public\\', ''); // Remove "public\" from the URL
+    
+    const modifiedImageUrl = userInfo.image ? userInfo.image.replace('public\\', '') : '';// Remove "public\" from the URL
     setImage(`http://localhost:3000/files/${modifiedImageUrl}`);
     setLoading(false);
   }, [userInfo.image]);

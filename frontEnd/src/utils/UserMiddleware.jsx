@@ -1,7 +1,7 @@
 import axios from "axios";
 import toast from "react-hot-toast";
 
-const baseURL=import.meta.env.CLIENT_URL
+const baseURL=import.meta.env.CLIENTURL
 
 
 const axiosInterceptorInstance = axios.create({

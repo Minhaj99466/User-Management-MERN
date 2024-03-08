@@ -118,7 +118,7 @@ export default function Signup() {
                   <div className="text-red-500 text-xs ">{errors.password}</div>
                 )}
               </div>
-              {/* {msg && <div className="text-green-500 text-xs ">{msg}</div>} */}
+
               <Button type="submit" className="mt-6" fullWidth>
                 Register
               </Button>
@@ -140,7 +140,7 @@ export default function Signup() {
         </Card>
       </div>
 
-      {/* <ToastContainer /> */}
+
     </>
   );
 }

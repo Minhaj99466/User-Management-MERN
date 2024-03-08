@@ -6,7 +6,7 @@ import {
   Button,
   Input,
 } from "@material-tailwind/react";
-// import {Formik} from 'formik'
+
 import Img from "../../assets/userAssets/download (3).jpg";
 import { useNavigate } from "react-router-dom";
 
@@ -14,11 +14,11 @@ import { useFormik } from "formik";
 import { LoginSchema } from "../../yupValidation/Validation";
 import { useDispatch } from "react-redux";
 import { setUserDetails } from "../../redux/userSlice";
-// import { useState } from "react";
+
 import toast, { Toaster } from "react-hot-toast";
 import { UserLogin } from "../../api/UserApi";
 
-//   import { ToastContainer } from "react-toastify";
+
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -62,7 +62,7 @@ export default function Login() {
           navigate('/')
         }, 2000)
       } catch (error) {
-        console.log(error.message)
+        console.log(error)
       }
 
     },
@@ -143,7 +143,7 @@ export default function Login() {
           </CardBody>
         </Card>
       </div>
-      {/* <ToastContainer /> */}
+
     </>
   );
 }

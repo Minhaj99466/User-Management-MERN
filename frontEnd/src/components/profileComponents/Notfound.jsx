@@ -6,7 +6,6 @@ export default function Notfound() {
     const navigate = useNavigate()
   return (
       <div style={{backgroundImage:"url('https://i.pinimg.com/564x/fa/e9/99/fae999862951fb6edb2e1a727e76e0d6.jpg')"}}>
-        {/* <img src="https://i.pinimg.com/564x/fa/e9/99/fae999862951fb6edb2e1a727e76e0d6.jpg" alt="" /> */}
       <section  className="flex items-center h-screen p-16  dark:text-gray-100">
 	<div  className="container flex flex-col items-center justify-center px-5 mx-auto my-8">
 		<div className="max-w-md text-center">

@@ -33,14 +33,6 @@ export const ProfileValidation = Yup.object({
   
   .required('Date of birth is required'),
 tenYearsAgo: Yup.date().default(() => new Date(new Date().setFullYear(new Date().getFullYear() - 10))),
-  // image: Yup.mixed()
-  //   .test("is-image", "Only image files are allowed", (value) => {
-  //     if (value) {
-  //       return imageFormats.includes(value.type);
-  //     }
-  //     return true;
-  //   })
-  //   .required("Choose a Photo"),
 });
 
 

@@ -11,8 +11,6 @@ import upload from "../../middleware/Multer.js";
 
 const userRoute = express();
 
-// POST Route for User Registration
-// userRoute.post('/',register)
 userRoute.post("/signup", register);
 userRoute.post("/otp", otpVerification);
 userRoute.post("/resendOtp", resendOtp);

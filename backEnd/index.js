@@ -25,7 +25,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 
 // connecting mongo db use mongodb compass url
-mongoose.connect()   
+mongoose.connect(process.env.MONGODB)   
 
 // Middleware for parsing JSON requests
 app.use(express.json());

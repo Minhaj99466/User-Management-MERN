@@ -23,6 +23,7 @@ export default function Profile() {
   const [profile, setProfile] = useState();
   const [loading, setLoading] = useState(false);
   const [image, setImage] = useState(false);
+  
 
   useEffect(() => {
     const showUserData = async () => {
@@ -31,13 +32,13 @@ export default function Profile() {
         const response = await GetProfile(id);
         if (response) {
           setLoading(true);
-          const userDetails = {
-            id: response.data._id,
-            name: response.data.name,
-            email: response.data.email,
-            date: response.data.date,
-            place: response.data.place,
-            image: response.data.image,
+          const userDetails ={
+            id: response.data?._id,
+            name: response.data?.name,
+            email: response.data?.email,
+            date: response.data?.date,
+            place: response.data?.place,
+            image: response.data?.image,
           };
           dispatch(
             setUserDetails({
@@ -55,6 +56,7 @@ export default function Profile() {
   }, [profile]);
 
 
+
   useEffect(() => {
     setLoading(true);
     
@@ -70,6 +72,7 @@ export default function Profile() {
     date: userInfo.date,
     image: userInfo.image
   };
+  console.log(initialValues);
   const { values, errors, touched, handleBlur, handleSubmit, handleChange, setFieldValue } =
     useFormik({
       initialValues: initialValues,
@@ -93,11 +96,6 @@ export default function Profile() {
         }
       },
     });
-
-
-
-
-  // Remove "public\" from the URL
 
 
 

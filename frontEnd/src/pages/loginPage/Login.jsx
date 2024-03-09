@@ -45,9 +45,9 @@ export default function Login() {
         const response = await UserLogin(values);
 
         const userDetails = {
-          id: response.data.userData._id,
-          name: response.data.userData.name,
-          email: response.data.userData.email,
+          id: response.data.userData?._id,
+          name: response.data.userData?.name,
+          email: response.data.userData?.email,
         };
         dispatch(
           setUserDetails({

@@ -5,7 +5,7 @@ const baseURL=import.meta.env.CLIENTURL
 
 
 const axiosInterceptorInstance = axios.create({
-    baseURL: baseURL
+    baseURL:"http://localhost:3000/"||baseURL
 });
 
 axiosInterceptorInstance.interceptors.request.use((req) => {

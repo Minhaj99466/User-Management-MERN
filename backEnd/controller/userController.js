@@ -180,7 +180,7 @@ export const userLogin = async (req, res) => {
 
     // if user not verified with otp
     if (!existUser.is_verfied)
-      return res.status(200).json({ message: "Please verify your account" });
+      return res.status(400).json({ message: "Please verify your account" });
 
     // comparing user password
     const passwordMatch = await bcrypt.compare(password, existUser.password);
